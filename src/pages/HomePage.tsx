@@ -4,7 +4,7 @@ import CategoryGrid from '@/components/CategoryGrid';
 import SEO from '@/components/SEO';
 import { companies, blogPosts, Company, BlogPost } from '@/data/companies';
 import { Link } from 'react-router-dom';
-import { TrendingUp } from 'lucide-react';
+import { TrendingUp, Wrench } from 'lucide-react';
 
 const popular = companies.slice(0, 12);
 const trending = companies.filter((c: Company) => c.waitMinutes <= 8).slice(0, 4);
@@ -32,6 +32,17 @@ export default function HomePage() {
         <section className="mt-14">
           <h2 className="text-xl font-bold text-gray-900 mb-6">Popular Companies</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">{popular.map((c: Company) => <CompanyCard key={c.slug} company={c} />)}</div>
+        </section>
+        <section className="mt-14">
+          <div className="flex items-center justify-between mb-6"><div className="flex items-center gap-2"><Wrench className="w-5 h-5 text-primary" /><h2 className="text-xl font-bold text-gray-900">Free Tools</h2></div><Link to="/tools" className="text-primary text-sm font-medium hover:underline">View all 50+ →</Link></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[{n:'Phone Number Formatter',s:'phone-number-formatter',d:'Format numbers into international, local, E.164'},{n:'Area Code Finder',s:'area-code-finder',d:'Look up any US/CA area code'},{n:'Password Generator',s:'password-generator',d:'Generate secure random passwords'},{n:'SMS Character Counter',s:'sms-character-counter',d:'Count chars and SMS segments'},{n:'WhatsApp Link Generator',s:'whatsapp-link-generator',d:'Create wa.me click-to-chat links'},{n:'Complaint Letter Generator',s:'complaint-letter-generator',d:'Generate formal complaint letters'}].map(t => (
+              <Link key={t.s} to={`/tools/${t.s}`} className="group bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-primary/30 transition-all duration-200 hover:-translate-y-0.5">
+                <h3 className="font-semibold text-gray-900 group-hover:text-primary transition-colors">{t.n}</h3>
+                <p className="text-sm text-gray-500 mt-1">{t.d}</p>
+              </Link>
+            ))}
+          </div>
         </section>
         <section className="mt-14 mb-4">
           <div className="flex items-center justify-between mb-6"><h2 className="text-xl font-bold text-gray-900">Guides & Tips</h2><Link to="/blog" className="text-primary text-sm font-medium hover:underline">View all →</Link></div>

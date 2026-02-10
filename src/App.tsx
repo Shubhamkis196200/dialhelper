@@ -10,6 +10,8 @@ const SearchPage = lazy(() => import('@/pages/SearchPage'));
 const About = lazy(() => import('@/pages/About'));
 const Contact = lazy(() => import('@/pages/Contact'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
+const ToolsIndex = lazy(() => import('@/pages/ToolsIndex'));
+const ToolPage = lazy(() => import('@/pages/ToolPage'));
 const BlogIndex = lazy(() => import('@/pages/Blog').then(m => ({ default: m.BlogIndex })));
 const BlogPostPage = lazy(() => import('@/pages/Blog').then(m => ({ default: m.BlogPostPage })));
 const AdminLayout = lazy(() => import('@/layouts/AdminLayout'));
@@ -35,6 +37,8 @@ export default function App() {
           <Route path="/search" element={<><Header /><SearchPage /><Footer /></>} />
           <Route path="/blog" element={<><Header /><BlogIndex /><Footer /></>} />
           <Route path="/blog/:slug" element={<><Header /><BlogPostPage /><Footer /></>} />
+          <Route path="/tools" element={<><Header /><ToolsIndex /><Footer /></>} />
+          <Route path="/tools/:slug" element={<><Header /><ToolPage /><Footer /></>} />
           <Route path="/about" element={<><Header /><About /><Footer /></>} />
           <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
           <Route path="/admin" element={<AdminLayout />}>

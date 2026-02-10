@@ -32,6 +32,7 @@ export default function Footer() {
               <Link to="/about" className="block text-gray-500 hover:text-primary">About</Link>
               <Link to="/contact" className="block text-gray-500 hover:text-primary">Contact</Link>
               <Link to="/blog" className="block text-gray-500 hover:text-primary">Blog</Link>
+              <Link to="/tools" className="block text-gray-500 hover:text-primary">Free Tools</Link>
             </div>
           </div>
         </div>

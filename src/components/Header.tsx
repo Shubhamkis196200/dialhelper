@@ -12,6 +12,7 @@ export default function Header() {
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
           <Link to="/" className="hover:text-primary">Home</Link>
+          <Link to="/tools" className="hover:text-primary">Tools</Link>
           <Link to="/category/telecom" className="hover:text-primary">Categories</Link>
           <Link to="/blog" className="hover:text-primary">Blog</Link>
           <Link to="/about" className="hover:text-primary">About</Link>
@@ -23,7 +24,7 @@ export default function Header() {
       </div>
       {open && (
         <nav className="md:hidden border-t border-gray-100 bg-white px-4 py-3 space-y-2">
-          {[['/', 'Home'], ['/category/telecom', 'Categories'], ['/blog', 'Blog'], ['/about', 'About'], ['/contact', 'Contact']].map(([to, label]) => (
+          {[['/', 'Home'], ['/tools', 'Tools'], ['/category/telecom', 'Categories'], ['/blog', 'Blog'], ['/about', 'About'], ['/contact', 'Contact']].map(([to, label]) => (
             <Link key={to} to={to} onClick={() => setOpen(false)} className="block py-2 text-gray-700 hover:text-primary font-medium">{label as string}</Link>
           ))}
         </nav>
